@@ -2,6 +2,15 @@
 ## Project Overview
 
  For the first time, we investigate the possibility of Automatic Machine Learning (AutoML) in designing and optimizing the thermal emission of subwavelength multilayer.
+
+## Table of Content
+- [Data Sources](#data-sources)
+- [Tools](#tools)
+- [AutoML Implementation of Thermal Emitter Design and Optimization](#automl-implementation-of-thermal-emitter-design-and-optimization)
+- [Code for AutoML Implementation](#code-for-automl-implementation)
+- [Citation](#citation)
+- [Corresponding Author](#corresponding-author)
+- [Appreciation](#appreciation)
  
 ### Data Sources
 
@@ -72,5 +81,61 @@
  - Python
  - Excel
 
-### AutoML Implementation (Thermal Emitter Design and Optimization)
-We employ  Automatic Machine Learning (AutoML) in the design and optimization of the proposed thermal emitter. AutoML is an exciting field of study that has the potential to reduce reliance on human knowledge while also boosting model performance. It employs Neural Architecture Search (NAS) to select both the model architecture and the training hyperparameters. AutoML automates the process of creating, optimizing, and modeling machine learning algorithms, resulting in more efficient and effective outcomes. Detail explanation can the found [here](https://ieeexplore.ieee.org/document/10360481?denied=)
+## AutoML Implementation of Thermal Emitter Design and Optimization
+We employ  Automatic Machine Learning (AutoML) in the design and optimization of the proposed thermal emitter. AutoML is an exciting field of study that has the potential to reduce reliance on human knowledge while also boosting model performance. It employs Neural Architecture Search (NAS) to select both the model architecture and the training hyperparameters. AutoML automates the process of creating, optimizing, and modeling machine learning algorithms, resulting in more efficient and effective outcomes. Detail explanation can the found [here](https://ieeexplore.ieee.org/document/10360481?denied=). 
+
+### Code for AutoML Implementation
+'''
+  
+    !pip install autokeras
+    import autokeras
+    from autokeras import StructuredDataRegressor
+    import tensorflow as tf
+    from tensorflow import keras
+    import numpy as np
+    import pandas as pd
+    from keras.models import Sequential
+    from keras.layers import Dense, Dropout
+    from keras import optimizers
+    import matplotlib.pyplot as plt # package for plotting
+
+    from google.colab import drive
+    drive.mount('/content/drive')
+    Absorp_seminar1="/content/drive/MyDrive/Data_Inverse_design_AutoML/Absorp_AutoML2.xlsx"
+    Thickness_seminar1="/content/drive/MyDrive/Data_Inverse_design_AutoML/Thickness_AutoML2.xlsx"
+    lamda_seminar1="/content/drive/MyDrive/Data_Inverse_design_AutoML/lamda_AutoML2.xlsx"
+
+    # Load the absorption spectrum and thickness of each layer
+    output = pd.read_excel(Absorp_seminar1)#  rhfspectrum 
+
+    input = pd.read_excel(Thickness_seminar1)#   thickness of each layer.
+
+    output= np.array(output)
+    input= np.array(input)
+
+    # Split the data into training, validation, and testing sets
+    train_output= output[0:14000] # 0 row to 14000 row depending the amount of your datas.
+    train_input= input[0:14000]
+    val_input=input[14001:17000]
+    val_output=output[14001:17000]
+    test_input=input[17001:20000]      
+    test_output=output[17001:20000] 
+    .
+    .
+    .
+    
+'''
+
+You can download the complete code [here](https://colab.research.google.com/drive/1sYq7lgq86vVHPtbtoZ78se2gJKWegOjr?usp=sharing)
+
+### Citation
+Cite as:
+A. A. Odebowale, S. Abdo, N. Alim, K. As’ham, H. T. Hattori and A. E. Miroshnichenko, "Design and Optimization of a Thermal Emitter using Automatic Machine Learning," 2023 IEEE Photonics Conference (IPC), Orlando, FL, USA, 2023, pp. 1-2, doi: 10.1109/IPC57732.2023.10360481.
+
+### Corresponding Author
+Email : Odebowale.ambali.oa@gmail.com or a.odebowale@adfa.edu.au
+
+### Appreciation
+Thanks to Prof. Andrey Miroshnichenko for his guidiance towards accomplishment of this project.
+
+
