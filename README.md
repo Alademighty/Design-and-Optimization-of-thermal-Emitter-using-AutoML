@@ -100,10 +100,10 @@ We employ  Automatic Machine Learning (AutoML) in the design and optimization of
     import matplotlib.pyplot as plt # package for plotting
 
     from google.colab import drive
-drive.mount('/content/drive')
-Absorp_AutoML="/content/drive/MyDrive/Data_Inverse_design_AutoML/Absorp_AutoML1.xlsx"
-Thickness_AutoML="/content/drive/MyDrive/Data_Inverse_design_AutoML/Thickness_AutoML1.xlsx"
-lamda_AutoML="/content/drive/MyDrive/Data_Inverse_design_AutoML/lamda_AutoML1.xlsx"
+    drive.mount('/content/drive')
+    Absorp_AutoML="/content/drive/MyDrive/Data_Inverse_design_AutoML/Absorp_AutoML1.xlsx"
+    Thickness_AutoML="/content/drive/MyDrive/Data_Inverse_design_AutoML/Thickness_AutoML1.xlsx"
+    lamda_AutoML="/content/drive/MyDrive/Data_Inverse_design_AutoML/lamda_AutoML1.xlsx"
 
     # Load the absorption spectrum and thickness of each layer
     output = pd.read_excel(Absorp_seminar1)#  rhfspectrum 
